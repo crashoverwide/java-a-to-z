@@ -5,10 +5,12 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.Assert.assertArrayEquals;
+
 public class IteratorStrangeTest {
 
     @Test
-    public void whenThen() {
+    public void whenConvertedThenConverted() {
 
         List<Integer> list1 = new ArrayList<Integer>();
         list1.add(1);
@@ -24,6 +26,14 @@ public class IteratorStrangeTest {
 
         IteratorStrangeArrayList iteratorStrange= new IteratorStrangeArrayList();
         List<Integer> listSmall = iteratorStrange.convert(listBig);
+
+        List<Integer> expected = new ArrayList<Integer>();
+        expected.add(1);
+        expected.add(2);
+        expected.add(3);
+        expected.add(4);
+
+        assertArrayEquals(expected.toArray(), listSmall.toArray());
 
     }
 
